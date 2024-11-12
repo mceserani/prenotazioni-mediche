@@ -1,0 +1,17 @@
+table {
+    border-collapse: collapse;
+}
+th, td {
+    width: 60px;
+    height: 30px;
+    text-align: center;
+    border: 1px solid #000;
+}
+.available {
+    background-color: green;
+    cursor: pointer;
+}
+.booked {
+    background-color: red;
+    cursor: default;
+}
