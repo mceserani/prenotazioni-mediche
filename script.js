@@ -28,11 +28,21 @@ for (let day = 1; day <= 30; day++) {
         else
             hour_cell.classList.add("booked");
         hour_cell.onclick = function() {
-            if (hour_cell.classList.contains("available")){
+            let confirm = false;
+            if (hour_cell.classList.contains("available"))
+                confirm = window.confirm("Vuoi prenotare questo orario?");
+            else
+                confirm = window.confirm("Vuoi cancellare la prenotazione?");
+            if (hour_cell.classList.contains("available") && confirm) {
                 hour_cell.classList.remove("available");
                 hour_cell.classList.add("booked");
                 // Inserisce nel LocalStorage la prenotazione
                 localStorage.setItem(hour_id, "booked");
+            } else if (hour_cell.classList.contains("booked") && confirm) {
+                hour_cell.classList.remove("booked");
+                hour_cell.classList.add("available");
+                // Rimuove dal LocalStorage la prenotazione
+                localStorage.removeItem(hour_id);
             }
         }
 		day_row.appendChild(hour_cell);

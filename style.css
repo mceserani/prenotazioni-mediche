@@ -13,5 +13,5 @@ th, td {
 }
 .booked {
     background-color: red;
-    cursor: default;
+    cursor: crosshair;
 }
